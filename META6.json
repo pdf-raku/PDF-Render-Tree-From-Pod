@@ -1,0 +1,24 @@
+{
+  "author": "David Warring",
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+    "description": "Render Pod to XML, HTML, etc",
+  "license": "Artistic-2.0",
+  "name": "PDF::Render::Tree::Reader::Pod",
+  "provides": {
+      "PDF::Render::Tree::Reader::Pod": "lib/PDF/Render/Tree/Reader/Pod.rakumod",
+      "PDF::Render::Tree::Reader::Pod::Metadata": "lib/PDF/Render/Tree/Reader/Pod/Metadata.rakumod"
+  },
+  "resources": [
+  ],
+  "source-url": "git://github.com/pod-to-pdf/PDF-Render-Tree-Reader-Pod.git",
+  "tags": [
+    "pdf",
+    "pod"
+  ],
+  "test-depends": [
+  ],
+  "version": "0.0.1"
+}
