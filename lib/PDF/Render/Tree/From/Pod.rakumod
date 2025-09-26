@@ -1,7 +1,7 @@
-unit class PDF::Render::Tree::Reader::Pod;
+unit class PDF::Render::Tree::From::Pod;
 
-use PDF::Render::Tree::Reader::Pod::Metadata;
-also does PDF::Render::Tree::Reader::Pod::Metadata;
+use PDF::Render::Tree::From::Pod::Metadata;
+also does PDF::Render::Tree::From::Pod::Metadata;
 
 subset Level where 0..6;
 

@@ -1,6 +1,6 @@
 use Test;
 plan 1;
-use PDF::Render::Tree::Reader::Pod;
-use PDF::Render::Tree::Reader::Pod::Metadata;
+use PDF::Render::Tree::From::Pod;
+use PDF::Render::Tree::From::Pod::Metadata;
 
 pass 'loads ok';
