@@ -4,7 +4,35 @@ use Test;
 use PDF::Render::Tree::From::Pod;
 plan 1;
 
-my $ast = :Document[:Lang("en"), :P["asdf"], :Table[:Caption["Table 1"], :TBody[:TR[:TD["A A"], :TD["B B"], :TD["C C"]], :TR[:TD["1 1"], :TD["2 2"], :TD["3 3"]]]], :P["asdf"], :Table[:Caption["Table 2"], :THead[:TR[:TH["H 1"], :TH["H 2"], :TH["H 3"]]], :TBody[:TR[:TD["A A"], :TD["B B"], :TD["C C"]], :TR[:TD["1 1"], :TD["2 2"], :TD["3 3"]]]], :P["asdf"], :Table[:Caption["Table 3"], :THead[:TR[:TH["H11"], :TH["HHH 222"], :TH["H 3"]]], :TBody[:TR[:TD["AAA"], :TD["BB"], :TD["C C C C"]], :TR[:TD["1 1"], :TD["2 2 2 2"], :TD["3 3"]]]], :P["asdf"], :Table[:THead[:TR[:TH["H 1"], :TH["H 2"], :TH["H 3"], :TH["H 4"]]], :TBody[:TR[:TD["Hello, I'm kinda long, I think"], :TD["B B"], :TD["C C"], :TD[""]], :TR[:TD["1 1"], :TD["Me also, methinks"], :TD["3 3"], :TD["This should definitely wrap. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"]], :TR[:TD["ww"], :TD["xx"], :TD["yy"], :TD["zz"]]]], :P["asdf"]];
+my $ast = :Document[
+                   :Lang("en"),
+                   :P["asdf"],
+                   :Table[:Caption["Table 1"],
+                          :TBody[:TR[:TD["A A"], :TD["B B"], :TD["C C"]],
+                                 :TR[:TD["1 1"], :TD["2 2"], :TD["3 3"]]]
+                         ],
+                   :P["asdf"],
+                   :Table[:Caption["Table 2"],
+                          :THead[:TR[:TH["H 1"], :TH["H 2"], :TH["H 3"]]],
+                          :TBody[:TR[:TD["A A"], :TD["B B"], :TD["C C"]],
+                                 :TR[:TD["1 1"], :TD["2 2"], :TD["3 3"]]
+                               ]
+                         ],
+                   :P["asdf"],
+                   :Table[:Caption["Table 3"],
+                          :THead[:TR[:TH["H11"], :TH["HHH 222"], :TH["H 3"]]],
+                          :TBody[:TR[:TD["AAA"], :TD["BB"], :TD["C C C C"]],
+                                 :TR[:TD["1 1"], :TD["2 2 2 2"], :TD["3 3"]]
+                                ]
+                         ],
+                   :P["asdf"],
+                   :Table[:THead[:TR[:TH["H 1"], :TH["H 2"], :TH["H 3"], :TH["H 4"]]],
+                          :TBody[:TR[:TD["Hello, I'm kinda long, I think"], :TD["B B"], :TD["C C"], :TD[""]],
+                                 :TR[:TD["1 1"], :TD["Me also, methinks"], :TD["3 3"], :TD["This should definitely wrap. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"]],
+                                 :TR[:TD["ww"], :TD["xx"], :TD["yy"], :TD["zz"]]]
+                         ],
+                   :P["asdf"]
+               ];
 
 PDF::Render::Tree::From::Pod.render($=pod).&is-deeply: $ast,
     'Converts tables correctly';
