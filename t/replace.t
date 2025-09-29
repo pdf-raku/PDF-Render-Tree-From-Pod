@@ -10,7 +10,18 @@ my %replace = :$date, :$title, :$author, :$description;
 
 my PDF::Render::Tree::From::Pod $reader .= new: :%replace;
 
-my $ast = :Document[:Author("David Warring"), :Subject("Replacement Test"), :Title("Sample Title"), :Lang("en"), "#comment" => " sample Pod with replaced content ", :Title["Sample Title"], :H2["Replacement Test"], :H2["Author"], :P["David Warring"], :H2["Date"], :P["2025-03-17"], :H2["Description"], :P["sample Pod with replaced content", ";"]];
+my $ast =
+    :Document[:Author("David Warring"), :Subject("Replacement Test"), :Title("Sample Title"), :Lang("en"),
+              "#comment" => " sample Pod with replaced content ",
+              :Title["Sample Title"],
+              :H2["Replacement Test"],
+              :H2["Author"],
+              :P["David Warring"],
+              :H2["Date"],
+              :P["2025-03-17"],
+              :H2["Description"],
+              :P["sample Pod with replaced content", ";"]
+             ];
 $reader.render($=pod).&is-deeply: $ast,
    'Various types of replacement content correctly';
 

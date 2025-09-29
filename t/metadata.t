@@ -6,8 +6,18 @@ use PDF::Render::Tree::From::Pod;
 plan 1;
 
 my %replace = :where<POD>;
-my PDF::Render::Tree::From::Pod $reader .= new: :indent, :%replace;
-my $ast = :Document[:Author("David Warring"), :Subject("Subtitle from POD"), :Title("Main Title v1.2.3"), :Lang("en"), "\n  ", :Title["Main Title"], "\n  ", :H2["Subtitle from ", "POD"], "\n  ", :H2["Author"], "\n  ", :P["David Warring"], "\n  ", :H2["Version"], "\n  ", :P["1.2.3"], "\n  ", :H2["Head2 from ", "POD"], "\n  ", :P["a paragraph."], "\n"];
+my PDF::Render::Tree::From::Pod $reader .= new: :%replace;
+my $ast =
+    :Document[:Author("David Warring"), :Subject("Subtitle from POD"), :Title("Main Title v1.2.3"), :Lang("en"),
+              :Title["Main Title"],
+              :H2["Subtitle from ", "POD"],
+              :H2["Author"],
+              :P["David Warring"],
+              :H2["Version"],
+              :P["1.2.3"],
+              :H2["Head2 from ", "POD"],
+              :P["a paragraph."]
+             ];
 $reader.render($=pod).&is-deeply: $ast,
    'Various types of metadata convert correctly';
 

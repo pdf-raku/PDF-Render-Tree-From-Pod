@@ -5,7 +5,25 @@ use PDF::Render::Tree::From::Pod;
 
 plan 1;
 
-my $ast = :Document[:Subject("for Pod::To::XML"), :Title("Heading tests"), :Lang("en"), :Title["Heading tests"], :H2["for ", :Link[:href("Pod::To::XML"), "Pod::To::XML"]], :H1["Abbreviated heading1"], :P["asdf"], :H1["Paragraph heading1"], :P["asdf"], :H2["Subheading2"], :H1[:P["Structured"], :P["heading1"]], :H3["Heading3"], :P["asdf"], :H2["Head2"], :P["asdf"], :H3["Head3"], :P["asdf"], :H4["Head4"], :P["asdf"]];
+my $ast =
+    :Document[:Subject("for Pod::To::XML"), :Title("Heading tests"), :Lang("en"),
+              :Title["Heading tests"],
+              :H2["for ", :Link[:href("Pod::To::XML"), "Pod::To::XML"]],
+              :H1["Abbreviated heading1"],
+              :P["asdf"],
+              :H1["Paragraph heading1"],
+              :P["asdf"],
+              :H2["Subheading2"],
+              :H1[:P["Structured"], :P["heading1"]],
+              :H3["Heading3"],
+              :P["asdf"],
+              :H2["Head2"],
+              :P["asdf"],
+              :H3["Head3"],
+              :P["asdf"],
+              :H4["Head4"],
+              :P["asdf"]
+             ];
 
 PDF::Render::Tree::From::Pod.render($=pod).&is-deeply: $ast,
    'Various types of headings convert correctly';
