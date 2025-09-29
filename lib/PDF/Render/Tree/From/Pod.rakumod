@@ -16,8 +16,10 @@ has @!item-nums;
 
 enum Tags ( :Artifact<Artifact>, :BlockQuote<BlockQuote>, :Caption<Caption>, :CODE<Code>, :Division<Div>, :Document<Document>, :Header<H>, :Label<Lbl>, :LIST<L>, :ListBody<LBody>, :ListItem<LI>, :FootNote<FENote>, :Reference<Reference>, :Paragraph<P>, :Quote<Quote>, :Span<Span>, :Section<Sect>, :Table<Table>, :TableBody<TBody>, :TableHead<THead>, :TableHeader<TH>, :TableData<TD>, :TableRow<TR>, :Link<Link>, :Emphasis<Em>, :Strong<Strong>, :Title<Title> );
 
+proto method render($, *% --> Pair) {*}
+
 multi method render(::?CLASS:U: |c) {
-    self.new.render(|c).raku;
+    self.new.render(|c);
 }
 
 multi method render(::?CLASS:D: $pod, :$tag = Document, |c) {
@@ -440,7 +442,7 @@ method !indent($n = 0) {
 
 method !open-tag($tag) {
     self!indent unless $!inlining;
-    my $tag-ast = $tag => [];
+    my $tag-ast = $tag.fmt => [];
     @!tags.tail.value.push: $tag-ast if @!tags;
     @!tags.push: $tag-ast;
     $tag-ast;
