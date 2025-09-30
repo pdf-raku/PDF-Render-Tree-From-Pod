@@ -6,7 +6,7 @@ plan 1;
 my PDF::Render::Tree::From::Pod $reader;
 # Note: Rakudo is currently flattening the Pod
 my $ast =
-    :Document[:Lang("en"),
+    :Document[:lang("en"),
               :Div[:role("Declaration"), :H2["Module Asdf1"], :P["This is a module"], :Code[:Placement("Block"), :role("Raku"), "module Asdf1"]],
               :Div[:role("Declaration"), :H3["Sub asdf"], :P["This is a sub"], :Code[:Placement("Block"), :role("Raku"), "sub asdf(\n    Str \$asdf1,\n    Str :\$asdf2 = \"asdf\",\n) returns Str"]],
               :Div[:role("Declaration"), :H2["Class Asdf2"], :P["This is a class"], :Code[:Placement("Block"), :role("Raku"), "class Asdf2"]],

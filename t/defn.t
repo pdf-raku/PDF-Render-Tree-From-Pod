@@ -6,7 +6,7 @@ use PDF::Render::Tree::From::Pod;
 plan 1;
 
 my $ast =
-    :Document[:Lang("en"),
+    :Document[:lang("en"),
               :L[:role("DL"),
                  :LI[:role("DL-DIV"),
                      :Lbl[:Placement("Block"), :role("DT"), "Happy"],

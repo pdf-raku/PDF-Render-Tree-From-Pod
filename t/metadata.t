@@ -8,7 +8,7 @@ plan 1;
 my %replace = :where<POD>;
 my PDF::Render::Tree::From::Pod $reader .= new: :%replace;
 my $ast =
-    :Document[:Author("David Warring"), :Subject("Subtitle from POD"), :Title("Main Title v1.2.3"), :Lang("en"),
+    :Document[:author("David Warring"), :subject("Subtitle from POD"), :title("Main Title v1.2.3"), :lang("en"),
               :Title["Main Title"],
               :H2["Subtitle from ", "POD"],
               :H2["Author"],

@@ -6,7 +6,7 @@ use PDF::Render::Tree::From::Pod;
 plan 1;
 
 my $ast =
-    :Document[:Lang("en"),
+    :Document[:lang("en"),
               :P["This text is of ", :Span[:TextDecorationType("Underline"), "minor significance"], "."],
               :P["This text is of ", :Em["major significance"], "."],
               :P["This text is of ", :Strong["fundamental significance"], "."],

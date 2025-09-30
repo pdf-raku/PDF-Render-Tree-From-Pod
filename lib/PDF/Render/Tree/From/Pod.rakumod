@@ -23,7 +23,7 @@ multi method render(::?CLASS:U: |c) {
 }
 
 multi method render(::?CLASS:D: $pod, :$tag = Document, |c) {
-    my Pair $doc = self!tag: $tag, :Lang($!lang), {
+    my Pair $doc = self!tag: $tag, :$!lang, {
         $.read($pod);
     }
     $doc.value.prepend: %.info.sort;

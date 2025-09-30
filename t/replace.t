@@ -11,7 +11,7 @@ my %replace = :$date, :$title, :$author, :$description;
 my PDF::Render::Tree::From::Pod $reader .= new: :%replace;
 
 my $ast =
-    :Document[:Author("David Warring"), :Subject("Replacement Test"), :Title("Sample Title"), :Lang("en"),
+    :Document[:author("David Warring"), :subject("Replacement Test"), :title("Sample Title"), :lang("en"),
               "#comment" => " sample Pod with replaced content ",
               :Title["Sample Title"],
               :H2["Replacement Test"],

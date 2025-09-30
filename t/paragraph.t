@@ -6,7 +6,7 @@ use PDF::Render::Tree::From::Pod;
 plan 1;
 
 my $ast =
-    :Document[:Lang("en"),
+    :Document[:lang("en"),
               :P["This is all a paragraph."],
               :P["This is the next paragraph."],
               :P["This is the third paragraph."],

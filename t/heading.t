@@ -6,7 +6,7 @@ use PDF::Render::Tree::From::Pod;
 plan 1;
 
 my $ast =
-    :Document[:Subject("for Pod::To::XML"), :Title("Heading tests"), :Lang("en"),
+    :Document[:subject("for Pod::To::XML"), :title("Heading tests"), :lang("en"),
               :Title["Heading tests"],
               :H2["for ", :Link[:href("Pod::To::XML"), "Pod::To::XML"]],
               :H1["Abbreviated heading1"],

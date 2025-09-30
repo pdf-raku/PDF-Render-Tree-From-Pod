@@ -6,7 +6,7 @@ plan 1;
 
 my $ast =
     :Document[
-             :Lang("en"),
+             :lang("en"),
              :P["asdf"],
              :Table[:Caption["Table 1"],
                     :TBody[:TR[:TD["A A"], :TD["B B"], :TD["C C"]],

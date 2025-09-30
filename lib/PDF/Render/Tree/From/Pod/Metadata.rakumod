@@ -20,12 +20,12 @@ method set-metadata(MetaType $key, $value) {
     %!metadata{$key.lc} = $value;
 
     my Str:D $info-key = do given $key {
-        when 'title'|'version'|'name' { 'Title' }
-        when 'subtitle' { 'Subject' }
-        when 'author' { 'Author' }
+        when 'title'|'version'|'name' { 'title' }
+        when 'subtitle' { 'subject' }
+        when 'author' { 'author' }
     }
 
-    my $pdf-value = $info-key eq 'Title'
+    my $pdf-value = $info-key eq 'title'
         ?? self!build-metadata-title()
         !! $value;
 

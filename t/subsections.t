@@ -4,7 +4,7 @@ use PDF::Render::Tree::From::Pod;
 plan 1;
 
 my $ast =
-    :Document[:Lang("en"),
+    :Document[:lang("en"),
               :H2["Outer"],
               :P["This is an outer paragraph"],
               :H3["Inner1"],

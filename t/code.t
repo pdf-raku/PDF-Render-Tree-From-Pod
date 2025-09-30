@@ -9,7 +9,7 @@ plan 1;
 my PDF::Render::Tree::From::Pod $reader .= new;
 
 my $ast =
-    :Document[:Lang("en"),
+    :Document[:lang("en"),
               :P["asdf"],
               :Code[:Placement("Block"), "indented"],
               :P["asdf"],
